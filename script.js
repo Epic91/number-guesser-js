@@ -14,13 +14,19 @@ const generateTarget = () => {
 }
 
 // Determines the winner
-const compareGuesses = (userGuess, computerGuess, target) => {
-  if (target - userGuess <= target - computerGuess) {
-    return true;
-  } else { 
-    return false;
+const compareGuesses = (human, computer, target) =>{
+  let humanGuess = Math.abs(human - target)
+  let computerGuess = Math.abs(computer - target)
+  if (human >= 9 || human <= 0) {
+    alert ('Please select a number from 1 - 9')
   }
-}
+  
+  if (humanGuess < computerGuess || humanGuess === computerGuess ) {
+    return true
+  } else if (computerGuess < humanGuess) {
+    return false
+    }
+  }
 
 // Increments the score based on winner
 const updateScore = winner => {
